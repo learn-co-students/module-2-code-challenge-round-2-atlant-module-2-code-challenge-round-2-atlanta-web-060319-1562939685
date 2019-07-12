@@ -1,0 +1,19 @@
+<h1>Add a New Guest</h1>
+
+<%if @guest.errors.present?%>
+    <h2>The following errors were present that prevented this action from occurring:</h2>
+    <ul>
+        <%@guest.errors.full_messages.each do |msg|%>
+        <li style="color: red"><%=msg%></li>
+        <%end%>
+    </ul>
+    <h2>Please make the relevant changes and try again!</h2>
+<%end%>
+
+<%=form_for @guest do |f|%>
+    <%=f.label :name%>
+    <%=f.text_field :name%>
+    <%=f.label :occupation%>
+    <%=f.text_field :occupation%>
+    <%=f.submit%>
+<%end%>

@@ -1,0 +1,19 @@
+<h1>Create a New Appearance</h1>
+
+<%if @appearance.errors.present?%>
+    <h2>The following errors were present that prevented this action from occurring:</h2>
+    <ul>
+        <%@appearance.errors.full_messages.each do |msg|%>
+        <li style="color: red"><%=msg%></li>
+        <%end%>
+    </ul>
+    <h2>Please make the relevant changes and try again!</h2>
+<%end%>
+
+<%=form_for @appearance do |f|%>
+    <%=f.collection_select(:episode_id, Episode.all, :id, :number) %>
+    <%=f.collection_select(:guest_id, Guest.all, :id, :name) %>
+    <%=f.label :episode_rating%>
+    <%=f.text_field :episode_rating%>
+    <%=f.submit%>
+<%end%>
