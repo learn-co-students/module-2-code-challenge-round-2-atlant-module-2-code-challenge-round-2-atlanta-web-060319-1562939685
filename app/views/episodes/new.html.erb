@@ -1,0 +1,19 @@
+<h1>Create a New Episode</h1>
+
+<%if @episode.errors.present?%>
+    <h2>The following errors were present that prevented this action from occurring:</h2>
+    <ul>
+        <%@episode.errors.full_messages.each do |msg|%>
+        <li style="color: red"><%=msg%></li>
+        <%end%>
+    </ul>
+    <h2>Please make the relevant changes and try again!</h2>
+<%end%>
+
+<%=form_for @episode do |f|%>
+    <%=f.label :date %>
+    <%=f.date_field :date %>
+    <%=f.label :number%>
+    <%=f.text_field :number%>
+    <%=f.submit%>
+<%end%>
