@@ -24,11 +24,6 @@ class GuestsController < ApplicationController
     
     
     
-    private
-    
-    def guest_params
-    params.require(:guest).permit(:name, :super_name, :power_id)
-    
     
     end
 
