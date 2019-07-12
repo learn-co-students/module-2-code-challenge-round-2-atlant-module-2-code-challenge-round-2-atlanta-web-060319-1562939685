@@ -1,0 +1,10 @@
+<%= form_for(@appearance) do |f| %>
+    <%= f.label "name" %>
+    <%= f.text_field :name %> <br>
+    <%= f.label "rating"%>
+    <%= f.number_field :number %><br>
+
+    <%= f.submit %>
+<% end %> 
+
+<li><%= link_to(appearance.name, appearance_new_path(appearance)) %></li>
